@@ -11,20 +11,31 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/users/{id}/{name}', function($id, $name){
+// 	return 'This is user '. $id .' and a name of: '. $name;
+// });
 
-Route::get('/home', 'HomeControler@index');
+// Route::get('/', function () {
+//     return view('welcome');
+// }); 
 
-// here we show the direction 
-Route::get('/about', 'AboutConstroler@index');
+// Route::get('/about', function () {
+//     return view('pages.about');
+// }); 
 
-Route::get('/contacts', 'ContactsConstroler@index');
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/services', 'PagesController@services');
 
-Route::get('/admin', 'AdminConstroler@index');
 
-Route::get('/test', 'testController@index');
+
+
+
+
+
+
+
+
 
 
 
