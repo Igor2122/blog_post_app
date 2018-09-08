@@ -1,14 +1,14 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app_layout')
 
-        <title>{{ config('app.name', 'Blog-Post') }}</title>
-        
-    </head>
-    <body>    	
-    	<h1>Our Services</h1>
-    </body>
-</html>
+@section('content')
+    <h1>{{$title}}</h1>
+    {{-- we check for the services first? --}}
+    @if(count($services) > 0)
+        {{-- loop through the array tha we declared in the controller module --}}
+        <ul>
+            @foreach($services as $service)
+                <li>{{$service}}</li>
+            @endforeach
+        </ul>
+    @endif
+@endsection
