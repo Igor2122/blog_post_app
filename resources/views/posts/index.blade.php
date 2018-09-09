@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Posts </h1>
-    @if(count($posts) > 1)
+    @if(count($posts) > 0)
       @foreach ($posts as $post)
       <div class="container w-75">
          <div class="card bg-faded mb-5 p-3">
@@ -13,6 +13,8 @@
          </div>
       </div>
       @endforeach
+      {{-- show the pagination --}}
+      {{$posts->links()}}
    @else 
       <p>No Posts Found</p>
    @endif
