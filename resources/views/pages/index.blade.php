@@ -1,7 +1,13 @@
 @extends('layouts.app_layout')
 
 @section('content')
-<h1>{{ $title }}</h1>
+<div class="jumbotron text-center">
+    <h1>{{ $title }}</h1>
     <p>We will take yout project to the next level!</p>
+    <p>
+        <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+        <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+    </p>
+</div>
 @endsection
 

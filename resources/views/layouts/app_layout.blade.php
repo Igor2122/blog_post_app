@@ -9,8 +9,9 @@
         
     </head>
     <body>
-        {{-- @include('layouts.partials._navigation') --}}
-        @yield('navigation')
-    	@yield('content')
+        @include('layouts.partials._navbar')   
+        <div class="container">
+            @yield('content')
+        </div>
     </body>
 </html>
