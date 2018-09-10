@@ -30,6 +30,9 @@ Route::get('/services', 'PagesController@services');
 Route::resource('/posts', 'PostsController');
 Route::resource('/login', 'LoginController');
 Route::resource('/register', 'RegisterController');
+Route::resource('/reset', 'ResetPasswordController');
+Route::resource('/forgot', 'ForgotPasswordController');
+Route::resource('/verification', 'VerificationController');
 
 
 
