@@ -27,28 +27,9 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
-Route::resource('posts', 'PostsController');
+Route::resource('/posts', 'PostsController');
 Route::resource('/login', 'LoginController');
-
-// Authentication routes...
-// get('auth/login', 'AuthController@getLogin');
-// post('auth/login', 'AuthController@postLogin');
-// get('auth/logout', 'AuthController@getLogout');
-
-// // Registration routes...
-// get('auth/register', 'AuthController@getRegister');
-// post('auth/register', 'AuthController@postRegister');
-
-
-
-
-
-
-
-
-
-
-
+Route::resource('/register', 'RegisterController');
 
 
 
