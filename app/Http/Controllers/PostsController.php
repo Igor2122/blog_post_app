@@ -90,7 +90,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        // fetch if from DB Post is our model
+        // fething the exact post witht the id
         $post = Post::find($id);
         return view('posts.show')->with('post', $post);
     }
@@ -103,7 +103,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        // we are fething the post again like in the show and direct to edit
+        $post = Post::find($id);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -115,7 +117,23 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /* validation of the submit reqest & array of rules:
+            title - required
+        */ 
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        // Create post with tinker
+        $post = Post::find($id);
+        $post->title = $request->input('title'); // will get what was submitted in the form
+        $post->body = $request->input('body'); // will get what was submitted in the form
+        $post->save();
+
+        // redirect after save with success message will pull it from messages file
+        return redirect('/posts')->with('success', 'Post Updated');
+        
     }
 
     /**
@@ -126,6 +144,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Post Removed');
     }
 }
